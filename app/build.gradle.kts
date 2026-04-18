@@ -26,7 +26,13 @@ android {
 
     signingConfigs {
         create("release") {
-            if (isReleaseBuild) {
+            val localKeystore = file("../foss-release.keystore")
+            if (localKeystore.exists()) {
+                storeFile = localKeystore
+                keyAlias = "foss"
+                storePassword = "foss123456"
+                keyPassword = "foss123456"
+            } else if (isReleaseBuild) {
                 storeFile = file("../keystore")
                 keyAlias = System.getenv("BITRISEIO_ANDROID_KEYSTORE_ALIAS")
                 storePassword = System.getenv("BITRISEIO_ANDROID_KEYSTORE_PASSWORD")
@@ -45,8 +51,8 @@ android {
         }
 
         getByName("release") {
-            isMinifyEnabled = true
-            isShrinkResources = true
+            isMinifyEnabled = false
+            isShrinkResources = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",

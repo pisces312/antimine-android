@@ -76,7 +76,7 @@
    void    preSolve(long, long);
    void    postSolve(long, long);
    boolean reportFixture(long);
-   float   reportRayFixture(long, float, float, float, float, float);
+   float   reportRayFixture(float, float, float, float, float, float);
 }
 
 -dontwarn javax.annotation.processing.AbstractProcessor
@@ -85,3 +85,29 @@
 -dontwarn com.google.android.material.R$attr
 -dontwarn dev.lucasnlm.antimine.i18n.R$string
 
+# Keep UI model classes used across modules
+-keep class dev.lucasnlm.antimine.ui.ext.ThemedActivity { *; }
+-keep class dev.lucasnlm.antimine.ui.ext.ColorExt { *; }
+-keep class dev.lucasnlm.antimine.ui.ext.SnackbarExt { *; }
+-keep class dev.lucasnlm.antimine.ui.model.AppSkin { *; }
+-keep class dev.lucasnlm.antimine.ui.model.AppTheme { *; }
+-keep class dev.lucasnlm.antimine.ui.model.AreaPalette { *; }
+-keep class dev.lucasnlm.antimine.ui.model.AreaPaletteKt { *; }
+-keep class dev.lucasnlm.antimine.ui.model.TopBarAction { *; }
+-keep class dev.lucasnlm.antimine.ui.repository.ThemeRepository { *; }
+-keep class dev.lucasnlm.antimine.ui.repository.ThemeRepositoryImpl { *; }
+-keep class dev.lucasnlm.antimine.ui.view.OfferCardButtonView { *; }
+-keep class dev.lucasnlm.antimine.ui.view.SpaceItemDecoration { *; }
+
+-dontwarn dev.lucasnlm.antimine.ui.ext.ThemedActivity
+-dontwarn dev.lucasnlm.antimine.ui.ext.ColorExt
+-dontwarn dev.lucasnlm.antimine.ui.ext.SnackbarExt
+-dontwarn dev.lucasnlm.antimine.ui.model.AppSkin
+-dontwarn dev.lucasnlm.antimine.ui.model.AppTheme
+-dontwarn dev.lucasnlm.antimine.ui.model.AreaPalette
+-dontwarn dev.lucasnlm.antimine.ui.model.AreaPaletteKt
+-dontwarn dev.lucasnlm.antimine.ui.model.TopBarAction
+-dontwarn dev.lucasnlm.antimine.ui.repository.ThemeRepository
+-dontwarn dev.lucasnlm.antimine.ui.repository.ThemeRepositoryImpl
+-dontwarn dev.lucasnlm.antimine.ui.view.OfferCardButtonView
+-dontwarn dev.lucasnlm.antimine.ui.view.SpaceItemDecoration
